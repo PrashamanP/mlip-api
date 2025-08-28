@@ -4,11 +4,11 @@ from google.genai import types
 from PIL import Image
 import io, os, json
 
-# Read API key from env var (do NOT hard-code it)
+# Read the API key from env var 
 api_key = os.environ.get("GEMINI_API_KEY")
 if not api_key:
     raise RuntimeError(
-        "GEMINI_API_KEY is not set. Export it in your shell before running the app."
+        "GEMINI_API_KEY is not set. Export it in your shell"
     )
 
 client = genai.Client(api_key=api_key)
@@ -31,7 +31,7 @@ def get_llm_response(image_data: bytes) -> dict:
 
     image_part = types.Part.from_bytes(
         data=image_data,
-        mime_type=mime,   # inline image for Gemini
+        mime_type=mime,   
     )
 
     # Ask for structured JSON
@@ -75,9 +75,8 @@ def get_llm_response(image_data: bytes) -> dict:
         },
     )
 
-    # The SDK returns JSON as a string in resp.text
+    # The SDK returns JSON as a string 
     try:
         return json.loads(resp.text)
     except Exception:
-        # Fallback if the model returns plain text
         return {"caption": resp.text, "objects": [], "safety_notes": ""}
