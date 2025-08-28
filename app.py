@@ -3,7 +3,7 @@ from flask import Flask, request, jsonify, render_template
 from analyze import get_llm_response
 import os
 
-# Point Flask at the templates/ directory
+
 app = Flask(__name__, template_folder='templates')
 app.url_map.strict_slashes = False
 
