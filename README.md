@@ -1,4 +1,4 @@
-# Lab 1: Calling, Building, and Securing APIs
+Calling, Building, and Securing APIs
 In homework I1 you will use third-party LLM APIs, and in the group project you will develop your own APIs. In this lab you will experiment with both: connecting to one such LLM's (Gemini) API, and providing your own API endpoint. 
 To receive credit for this lab, show your work to the TA during recitation.
 
